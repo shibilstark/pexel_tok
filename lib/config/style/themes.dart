@@ -16,10 +16,10 @@ class AppThemes {
       backgroundColor: Colors.transparent,
     ),
     primaryIconTheme: IconThemeData(
-      color: AppColors.mediumBlack,
+      color: AppColors.black,
       size: 25.sp,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
         fontSize: AppFontSize.landingTitle,
         color: AppColors.black,
@@ -60,10 +60,10 @@ class AppThemes {
       backgroundColor: Colors.transparent,
     ),
     primaryIconTheme: IconThemeData(
-      color: AppColors.mediumWhite,
+      color: AppColors.white,
       size: 25.sp,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
         fontSize: AppFontSize.landingTitle,
         color: AppColors.white,
