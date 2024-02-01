@@ -139,29 +139,43 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 40),
-                                child: CommonButtonWidget(
-                                  backgroundColor: value.length == 3
-                                      ? AppColors.theme
-                                      : Colors.transparent,
-                                  child: Text(
-                                    "Get Started",
-                                    style: TextStyle(
-                                      color: value.length == 3
-                                          ? AppColors.white
-                                          : Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .color!
-                                              .withOpacity(0.4),
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                child: Hero(
+                                  tag: "to_dahsbord_appbar",
+                                  flightShuttleBuilder: (flightContext,
+                                          animation,
+                                          flightDirection,
+                                          fromHeroContext,
+                                          toHeroContext) =>
+                                      const Icon(
+                                    Icons.rocket,
+                                    color: AppColors.overlay,
                                   ),
-                                  ontap: () {
-                                    AppNavigator.push(
-                                      context: context,
-                                      screenName: AppRouter.DASH_BOARD,
-                                    );
-                                  },
+                                  child: CommonButtonWidget(
+                                    backgroundColor: value.length == 3
+                                        ? AppColors.theme
+                                        : Colors.transparent,
+                                    child: Text(
+                                      "Get Started",
+                                      style: TextStyle(
+                                        color: value.length == 3
+                                            ? AppColors.white
+                                            : Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .color!
+                                                .withOpacity(0.4),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    ontap: () {
+                                      if (value.length == 3) {
+                                        AppNavigator.pushAndRemoveUntil(
+                                          context: context,
+                                          screenName: AppRouter.DASH_BOARD,
+                                        );
+                                      }
+                                    },
+                                  ),
                                 ),
                               )
                             ],

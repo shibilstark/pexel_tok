@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:pexel_tok/presentation/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:pexel_tok/presentation/screens/preference_screen/preference_screen.dart';
 
 import '../screens/landing_screen/landing_screen.dart';
@@ -17,6 +18,8 @@ class AppRouter {
         return _animatePage(const LandingScreen());
       case SELECT_PREFERENCE_SCREEN:
         return _animatePage(const PreferenceScreen());
+      case DASH_BOARD:
+        return _animatePage(const DashBoardScreen());
       default:
         return null;
     }
@@ -42,6 +45,16 @@ class AppNavigator {
     Map<String, dynamic>? arguments,
   }) async {
     Navigator.pushReplacementNamed(context, screenName, arguments: arguments);
+  }
+
+  static pushAndRemoveUntil({
+    required BuildContext context,
+    required String screenName,
+    Map<String, dynamic>? arguments,
+  }) async {
+    Navigator.pushNamedAndRemoveUntil(context, screenName, (predicate) {
+      return false;
+    });
   }
 
   static popAndPush(
