@@ -4,7 +4,7 @@ class VideoSrcModel {
   final String fileType;
   final int width;
   final int height;
-  final double fps;
+  final double? fps;
   final String link;
 
   const VideoSrcModel({

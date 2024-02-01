@@ -14,12 +14,9 @@ sealed class AppFailure {
 
 class ClientFailure extends AppFailure {
   @override
-  final String message;
-
-  const ClientFailure({
-    required this.message,
-  }) : super(
-          message: message,
+  const ClientFailure()
+      : super(
+          message: "Something went wrong, please try again later",
           type: FailureType.client,
         );
 }
@@ -37,13 +34,19 @@ class ServerFailure extends AppFailure {
 }
 
 class UnknownFailure extends AppFailure {
-  @override
-  final String message;
+  const UnknownFailure()
+      : super(
+          message:
+              "Oops, it seems like something went wrong please try again later",
+          type: FailureType.unknown,
+        );
+}
 
-  const UnknownFailure({
-    required this.message,
-  }) : super(
-          message: message,
+class InternetFailure extends AppFailure {
+  const InternetFailure()
+      : super(
+          message:
+              "Oops, No network found, check your connection and try again later",
           type: FailureType.unknown,
         );
 }

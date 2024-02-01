@@ -14,10 +14,10 @@ VideoDto _$VideoDtoFromJson(Map<String, dynamic> json) => VideoDto(
       image: json['image'] as String?,
       duration: json['duration'] as int,
       user: VideoGrapherDto.fromJson(json['user'] as Map<String, dynamic>),
-      videoFiles: (json['videoFiles'] as List<dynamic>)
+      videoFiles: (json['video_files'] as List<dynamic>)
           .map((e) => VideoSrcDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      videoPictures: (json['videoPictures'] as List<dynamic>)
+      videoPictures: (json['video_pictures'] as List<dynamic>)
           .map((e) => VideoPreviewDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -30,6 +30,6 @@ Map<String, dynamic> _$VideoDtoToJson(VideoDto instance) => <String, dynamic>{
       'image': instance.image,
       'duration': instance.duration,
       'user': instance.user,
-      'videoFiles': instance.videoFiles,
-      'videoPictures': instance.videoPictures,
+      'video_files': instance.videoFiles,
+      'video_pictures': instance.videoPictures,
     };

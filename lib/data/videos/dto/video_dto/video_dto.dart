@@ -23,9 +23,9 @@ class VideoDto {
   int duration;
   @JsonKey(name: 'user')
   VideoGrapherDto user;
-  @JsonKey(name: 'videoFiles')
+  @JsonKey(name: 'video_files')
   List<VideoSrcDto> videoFiles;
-  @JsonKey(name: 'videoPictures')
+  @JsonKey(name: 'video_pictures')
   List<VideoPreviewDto> videoPictures;
 
   VideoDto({

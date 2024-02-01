@@ -17,11 +17,11 @@ class ImageDto {
   String? url;
   @JsonKey(name: 'photographer')
   String photographer;
-  @JsonKey(name: 'photographerUrl')
+  @JsonKey(name: 'photographer_url')
   String photographerUrl;
-  @JsonKey(name: 'photographerId')
+  @JsonKey(name: 'photographer_id')
   int photographerId;
-  @JsonKey(name: 'avgColor')
+  @JsonKey(name: 'avg_color')
   String? avgColor;
   @JsonKey(name: 'src')
   ImageSrcDto src;

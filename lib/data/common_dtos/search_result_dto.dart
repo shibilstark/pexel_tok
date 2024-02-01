@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:pexel_tok/data/images/dto/image_dto/image_dto.dart';
+import 'package:pexel_tok/data/videos/dto/video_dto/video_dto.dart';
 import 'package:pexel_tok/domain/common_models/media_model.dart';
 import 'package:pexel_tok/domain/common_models/search_result_model.dart';
 import 'package:pexel_tok/domain/enums/custom_enums.dart';
@@ -9,14 +11,14 @@ part 'search_result_dto.g.dart';
 class SearchResultDtoImages {
   @JsonKey(name: 'page')
   final int page;
-  @JsonKey(name: 'perPage')
+  @JsonKey(name: 'per_page')
   final int perPage;
-  @JsonKey(name: 'totalResults')
+  @JsonKey(name: 'total_results')
   final int totalResults;
-  @JsonKey(name: 'nextPage')
+  @JsonKey(name: 'next_page')
   String? nextPage;
   @JsonKey(name: 'photos')
-  final List<String> photos;
+  final List<ImageDto> photos;
 
   SearchResultDtoImages({
     required this.page,
@@ -49,14 +51,14 @@ class SearchResultDtoImages {
 class SearchResultDtoVideos {
   @JsonKey(name: 'page')
   final int page;
-  @JsonKey(name: 'perPage')
+  @JsonKey(name: 'per_page')
   final int perPage;
-  @JsonKey(name: 'totalResults')
+  @JsonKey(name: 'total_results')
   final int totalResults;
-  @JsonKey(name: 'nextPage')
+  @JsonKey(name: 'next_page')
   String? nextPage;
   @JsonKey(name: 'videos')
-  final List<String> videos;
+  final List<VideoDto> videos;
 
   SearchResultDtoVideos({
     required this.page,
