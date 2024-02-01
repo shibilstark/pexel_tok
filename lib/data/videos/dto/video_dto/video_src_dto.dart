@@ -9,14 +9,14 @@ class VideoSrcDto {
   int id;
   @JsonKey(name: 'quality')
   String quality;
-  @JsonKey(name: 'fileType')
+  @JsonKey(name: 'file_type')
   String fileType;
   @JsonKey(name: 'width')
   int width;
   @JsonKey(name: 'height')
   int height;
   @JsonKey(name: 'fps')
-  double fps;
+  double? fps;
   @JsonKey(name: 'link')
   String link;
 
