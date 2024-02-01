@@ -2,17 +2,17 @@
 
 import '../enums/custom_enums.dart';
 
-sealed class Failure {
+sealed class AppFailure {
   final FailureType type;
   final String message;
 
-  const Failure({
+  const AppFailure({
     required this.message,
     required this.type,
   });
 }
 
-class ClientFailure extends Failure {
+class ClientFailure extends AppFailure {
   @override
   final String message;
 
@@ -24,7 +24,7 @@ class ClientFailure extends Failure {
         );
 }
 
-class ServerFailure extends Failure {
+class ServerFailure extends AppFailure {
   @override
   final String message;
 
@@ -36,7 +36,7 @@ class ServerFailure extends Failure {
         );
 }
 
-class UnknownFailure extends Failure {
+class UnknownFailure extends AppFailure {
   @override
   final String message;
 
