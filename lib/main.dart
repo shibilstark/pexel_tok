@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pexel_tok/config/style/themes.dart';
 import 'package:pexel_tok/injector/injecter.dart';
+import 'package:pexel_tok/presentation/bloc/theme/theme_bloc.dart';
+import 'package:pexel_tok/presentation/router/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,21 +17,28 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: TextButton(
-            child: const Text("Press"),
-            onPressed: () async {
-              // final data = await getIt<VideosRepository>().getPopularVideos();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<ThemeBloc>()),
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(360, 900),
+        splitScreenMode: true,
+        minTextAdapt: true,
+        builder: (context, child) {
+          context.read<ThemeBloc>().add(const LoadTheme());
 
-              // data.fold(
-              //     (l) => log(l.message),
-              //     (r) => log(
-              //         "Found ${r.media.medias.length} of type ${r.media.type}"));
+          return BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: state.isDarkMode ? AppThemes.dark : AppThemes.light,
+                onGenerateRoute: AppRouter.ongeneratedRoute,
+                initialRoute: AppRouter.LANDING_SCREEN,
+              );
             },
-          ),
-        ),
+          );
+        },
       ),
     );
   }

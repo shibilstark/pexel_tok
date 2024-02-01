@@ -11,9 +11,10 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../data/images/images_repository_impl/images_repository_impl.dart'
     as _i4;
 import '../data/videos/videos_repository_impl/videos_repository_impl.dart'
-    as _i6;
+    as _i7;
 import '../domain/images/images_repository/images_repository.dart' as _i3;
-import '../domain/videos/videos_repository/videos_repository.dart'
+import '../domain/videos/videos_repository/videos_repository.dart' as _i6;
+import '../presentation/bloc/theme/theme_bloc.dart'
     as _i5; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
@@ -29,6 +30,7 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.ImagesRepository>(() => _i4.ImagesRepositoryImpl());
-  gh.lazySingleton<_i5.VideosRepository>(() => _i6.ImagesRepositoryImpl());
+  gh.factory<_i5.ThemeBloc>(() => _i5.ThemeBloc());
+  gh.lazySingleton<_i6.VideosRepository>(() => _i7.ImagesRepositoryImpl());
   return get;
 }
